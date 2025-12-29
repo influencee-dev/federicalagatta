@@ -1,14 +1,17 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { SERVICES } from '../constants';
+import { SERVICES, CONTACT_INFO } from '../constants';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 
 const Consulenze: React.FC = () => {
-  const navigate = useNavigate();
+  const handleWhatsAppBooking = (serviceTitle: string) => {
+    const message = encodeURIComponent(`Ciao Federica, vorrei prenotare la sessione: "${serviceTitle}". Mi potresti dare maggiori informazioni?`);
+    window.open(`https://wa.me/${CONTACT_INFO.whatsapp}?text=${message}`, '_blank');
+  };
 
-  const handleBookingRedirect = () => {
-    navigate('/contatti');
+  const handleGeneralInfo = () => {
+    const message = encodeURIComponent(`Ciao Federica, vorrei avere maggiori informazioni sui tuoi percorsi nutrizionali.`);
+    window.open(`https://wa.me/${CONTACT_INFO.whatsapp}?text=${message}`, '_blank');
   };
 
   return (
@@ -60,10 +63,10 @@ const Consulenze: React.FC = () => {
               
               <div className="px-6 pb-8 pt-0">
                 <button
-                  onClick={handleBookingRedirect}
+                  onClick={() => handleWhatsAppBooking(service.title)}
                   className="w-full bg-[#6B1C3B] text-white py-4 sm:py-5 rounded-2xl flex items-center justify-center space-x-3 font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-[#5a1731] transition-all shadow-lg group/btn"
                 >
-                  <span>Prenota Sessione</span>
+                  <span>Prenota via WhatsApp</span>
                   <ChevronRight size={16} className="ml-1 opacity-100 transition-all -translate-x-1 group-hover/btn:translate-x-0" />
                 </button>
               </div>
@@ -78,7 +81,7 @@ const Consulenze: React.FC = () => {
               Non sai quale percorso si adatta meglio alle tue esigenze? Scrivimi per un breve colloquio informativo gratuito.
             </p>
             <button
-              onClick={handleBookingRedirect}
+              onClick={handleGeneralInfo}
               className="inline-flex items-center space-x-2 border-2 border-[#4A5D23] text-[#4A5D23] px-10 py-4 sm:py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-[#4A5D23] hover:text-white transition-all shadow-sm"
             >
               <span>Chiedi informazioni</span>
