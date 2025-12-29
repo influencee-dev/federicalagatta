@@ -1,0 +1,7 @@
+{
+  "name": "Federica La Gatta - Nutrizionista",
+  "description": "Sito web professionale per la Dott.ssa Federica La Gatta, Nutrizionista specializzata in percorsi di salute e benessere consapevoli.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

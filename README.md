@@ -1,11 +1,36 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# Federica La Gatta - Nutrizionista
 
-  <h1>Built with AI Studio</h2>
+Sito web professionale per la Dott.ssa Federica La Gatta.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🚀 Tecnologie utilizzate
+- React 19
+- Vite
+- TypeScript
+- Tailwind CSS
+- Lucide React
+- React Router
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## 🛠️ Installazione Locale
 
-</div>
+1. Clona il repository:
+```bash
+git clone <tuo-url-repository>
+```
+
+2. Installa le dipendenze:
+```bash
+npm install
+```
+
+3. Avvia il server di sviluppo:
+```bash
+npm run dev
+```
+
+## 🌍 Deploy su Vercel
+
+1. Carica il progetto su GitHub.
+2. Vai su [Vercel](https://vercel.com) e importa il repository.
+3. Vercel rileverà automaticamente le impostazioni di Vite.
+4. Clicca su **Deploy**.
