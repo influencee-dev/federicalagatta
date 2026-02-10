@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <h3 className="logo-font text-3xl font-medium mb-1 italic">Federica La Gatta</h3>
+            <h3 className="logo-font text-3xl font-medium mb-1 italic text-stone-900">Federica La Gatta</h3>
             <p className="text-[#4A5D23] text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Nutrizionista</p>
             <p className="text-stone-500 text-sm leading-relaxed mb-6">
               Nutrizionista dedicata a percorsi di salute personalizzati per ritrovare l'equilibrio e il benessere attraverso un'alimentazione consapevole e sostenibile.
@@ -29,17 +29,34 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-xs tracking-widest uppercase mb-6 text-stone-400">Contatti</h4>
             <ul className="space-y-4">
-              <li className="flex items-center text-stone-600">
-                <MapPin size={18} className="mr-2 text-[#4A5D23]" />
-                <span className="text-sm">{CONTACT_INFO.address}</span>
+              <li>
+                <a 
+                  href={CONTACT_INFO.mapsUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-start text-stone-600 hover:text-[#4A5D23] transition-colors"
+                >
+                  <MapPin size={18} className="mr-2 mt-0.5 text-[#4A5D23] shrink-0" />
+                  <span className="text-sm">{CONTACT_INFO.address}</span>
+                </a>
               </li>
-              <li className="flex items-center text-stone-600">
-                <Phone size={18} className="mr-2 text-[#4A5D23]" />
-                <span className="text-sm">{CONTACT_INFO.phone}</span>
+              <li>
+                <a 
+                  href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`} 
+                  className="flex items-center text-stone-600 hover:text-[#4A5D23] transition-colors"
+                >
+                  <Phone size={18} className="mr-2 text-[#4A5D23] shrink-0" />
+                  <span className="text-sm">{CONTACT_INFO.phone}</span>
+                </a>
               </li>
-              <li className="flex items-center text-stone-600">
-                <Mail size={18} className="mr-2 text-[#4A5D23]" />
-                <span className="text-sm">{CONTACT_INFO.email}</span>
+              <li>
+                <a 
+                  href={`mailto:${CONTACT_INFO.email}`} 
+                  className="flex items-center text-stone-600 hover:text-[#4A5D23] transition-colors"
+                >
+                  <Mail size={18} className="mr-2 text-[#4A5D23] shrink-0" />
+                  <span className="text-sm">{CONTACT_INFO.email}</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -47,7 +64,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-xs tracking-widest uppercase mb-6 text-stone-400">Seguimi</h4>
             <div className="flex space-x-4">
-              <a href={`https://instagram.com/${CONTACT_INFO.instagram}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-stone-50 rounded-full text-[#4A5D23] hover:bg-[#4A5D23] hover:text-white transition-all">
+              <a href={`https://instagram.com/${CONTACT_INFO.instagram}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-stone-50 rounded-full text-[#4A5D23] hover:bg-[#4A5D23] hover:text-white transition-all shadow-sm">
                 <Instagram size={20} />
               </a>
             </div>

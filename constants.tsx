@@ -67,9 +67,20 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const CONTACT_INFO = {
-  phone: "+39 333 123 4567",
-  whatsapp: "393331234567",
+  phone: "340 875 7773",
+  whatsapp: "393408757773",
   email: "info@federicalagatta.it",
-  address: "Via del Benessere 42, Milano (MI)",
-  instagram: "federicalagatta_nutrizionista"
+  address: "Via A. Cesare Carelli, 28, 71121 Foggia FG",
+  instagram: "federicalagatta_nutrizionista",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Via+A.+Cesare+Carelli+28+71121+Foggia+FG"
 };
+
+export const BUSINESS_HOURS = [
+  { day: 'Lunedì', hours: '09:00 – 12:00, 17:30 – 20:00' },
+  { day: 'Martedì', hours: 'Chiuso' },
+  { day: 'Mercoledì', hours: '09:00 – 12:00, 17:30 – 20:00' },
+  { day: 'Giovedì', hours: 'Chiuso' },
+  { day: 'Venerdì', hours: '09:00 – 12:00' },
+  { day: 'Sabato', hours: 'Chiuso' },
+  { day: 'Domenica', hours: 'Chiuso' },
+];

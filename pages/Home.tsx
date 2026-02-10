@@ -27,11 +27,11 @@ const Home: React.FC = () => {
             </Link>
           </div>
         </div>
-        <div className="w-full md:w-1/2 relative h-[40vh] sm:h-[50vh] md:h-full order-1 md:order-2">
+        <div className="w-full md:w-1/2 relative h-[50vh] sm:h-[60vh] md:h-full order-1 md:order-2 bg-stone-100">
           <img 
-            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1200" 
-            alt="Alimentazione sana e colorata"
-            className="w-full h-full object-cover"
+            src="flg.webp" 
+            alt="Dott.ssa Federica La Gatta - Nutrizionista"
+            className="w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-stone-900/5 md:hidden"></div>
         </div>

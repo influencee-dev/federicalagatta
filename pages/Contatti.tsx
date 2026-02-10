@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { CONTACT_INFO } from '../constants';
+import { CONTACT_INFO, BUSINESS_HOURS } from '../constants';
 import { Mail, Phone, MapPin, Clock, Instagram, CheckCircle2 } from 'lucide-react';
 
 const Contatti: React.FC = () => {
@@ -21,59 +21,93 @@ const Contatti: React.FC = () => {
     // Simulate form submission
     console.log('Form submitted:', formData);
     setSubmitted(true);
-    // In a real app, you'd send this to an API or email service
   };
 
   return (
-    <div className="pt-32 pb-24 px-6 sm:px-12">
+    <div className="pt-32 pb-24 px-6 sm:px-12 bg-[#F9F7F2]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div className="order-2 lg:order-1">
-            <span className="text-[10px] font-bold tracking-[0.4em] text-[#D48C6B] uppercase mb-4 block">Come trovarmi</span>
-            <h1 className="serif text-4xl sm:text-5xl md:text-6xl mb-8 text-stone-900">Iniziamo il tuo percorso insieme.</h1>
-            <p className="text-stone-600 text-base sm:text-lg mb-12 leading-relaxed">
-              Ricevo in studio a Milano su appuntamento e online in tutta Italia. Scegli il canale che preferisci per contattarmi.
+            <span className="text-[10px] font-bold tracking-[0.4em] text-[#D48C6B] uppercase mb-4 block">Contatti</span>
+            <h1 className="serif text-4xl sm:text-5xl md:text-6xl mb-8 text-stone-900 leading-tight">Iniziamo il tuo percorso insieme.</h1>
+            <p className="text-stone-600 text-base sm:text-lg mb-12 leading-relaxed max-w-lg">
+              Ricevo in studio a Foggia su appuntamento e online in tutta Italia. Scegli il canale che preferisci per contattarmi.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8 sm:gap-10">
-              <div className="flex items-start space-x-6 group">
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-[#4A5D23] transition-colors group-hover:bg-[#4A5D23] group-hover:text-white">
+            {/* Contact Links */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 mb-16">
+              <a 
+                href={CONTACT_INFO.mapsUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-start space-x-6 p-4 rounded-3xl transition-all hover:bg-white hover:shadow-md group"
+              >
+                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-[#4A5D23] transition-all group-hover:bg-[#4A5D23] group-hover:text-white shrink-0">
                   <MapPin size={22} />
                 </div>
                 <div>
                   <h4 className="font-bold text-stone-900 mb-1 uppercase tracking-widest text-[10px]">Lo Studio</h4>
-                  <p className="text-stone-500 text-sm">{CONTACT_INFO.address}</p>
+                  <p className="text-stone-500 text-sm group-hover:text-stone-700">{CONTACT_INFO.address}</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start space-x-6 group">
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-[#6B1C3B] transition-colors group-hover:bg-[#6B1C3B] group-hover:text-white">
-                  <Mail size={22} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-stone-900 mb-1 uppercase tracking-widest text-[10px]">Email</h4>
-                  <p className="text-stone-500 text-sm">{CONTACT_INFO.email}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-6 group">
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-[#4A5D23] transition-colors group-hover:bg-[#4A5D23] group-hover:text-white">
+              <a 
+                href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`} 
+                className="flex items-start space-x-6 p-4 rounded-3xl transition-all hover:bg-white hover:shadow-md group"
+              >
+                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-[#4A5D23] transition-all group-hover:bg-[#4A5D23] group-hover:text-white shrink-0">
                   <Phone size={22} />
                 </div>
                 <div>
                   <h4 className="font-bold text-stone-900 mb-1 uppercase tracking-widest text-[10px]">Telefono</h4>
-                  <p className="text-stone-500 text-sm">{CONTACT_INFO.phone}</p>
+                  <p className="text-stone-500 text-sm group-hover:text-stone-700">{CONTACT_INFO.phone}</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start space-x-6 group">
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-[#D48C6B] transition-colors group-hover:bg-[#D48C6B] group-hover:text-white">
+              <a 
+                href={`mailto:${CONTACT_INFO.email}`} 
+                className="flex items-start space-x-6 p-4 rounded-3xl transition-all hover:bg-white hover:shadow-md group"
+              >
+                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-[#6B1C3B] transition-all group-hover:bg-[#6B1C3B] group-hover:text-white shrink-0">
+                  <Mail size={22} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-stone-900 mb-1 uppercase tracking-widest text-[10px]">Email</h4>
+                  <p className="text-stone-500 text-sm group-hover:text-stone-700">{CONTACT_INFO.email}</p>
+                </div>
+              </a>
+
+              <a 
+                href={`https://instagram.com/${CONTACT_INFO.instagram}`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-start space-x-6 p-4 rounded-3xl transition-all hover:bg-white hover:shadow-md group"
+              >
+                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-[#D48C6B] transition-all group-hover:bg-[#D48C6B] group-hover:text-white shrink-0">
                   <Instagram size={22} />
                 </div>
                 <div>
                   <h4 className="font-bold text-stone-900 mb-1 uppercase tracking-widest text-[10px]">Social</h4>
-                  <p className="text-stone-500 text-sm">@{CONTACT_INFO.instagram}</p>
+                  <p className="text-stone-500 text-sm group-hover:text-stone-700">@{CONTACT_INFO.instagram}</p>
                 </div>
+              </a>
+            </div>
+
+            {/* Business Hours */}
+            <div className="bg-white/50 backdrop-blur-sm p-8 rounded-[32px] border border-white">
+              <div className="flex items-center space-x-3 mb-6">
+                <Clock size={20} className="text-[#4A5D23]" />
+                <h3 className="serif text-2xl text-stone-800">Orari di Ricevimento</h3>
+              </div>
+              <div className="space-y-3">
+                {BUSINESS_HOURS.map((item, idx) => (
+                  <div key={idx} className="flex justify-between items-center text-sm border-b border-stone-200/50 pb-2 last:border-0 last:pb-0">
+                    <span className="font-medium text-stone-600">{item.day}</span>
+                    <span className={`font-semibold ${item.hours === 'Chiuso' ? 'text-stone-400' : 'text-stone-800'}`}>
+                      {item.hours}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
